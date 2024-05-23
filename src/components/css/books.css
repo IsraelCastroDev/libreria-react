@@ -1,0 +1,25 @@
+.book-img {
+  position: relative;
+}
+
+.book-cover {
+  transition: opacity 0.5s;
+}
+
+.book-img:hover .book-cover {
+  opacity: 0.5;
+}
+
+.book-img:hover .book-btn {
+  opacity: 1;
+}
+
+.book-btn {
+  position: absolute;
+  top: calc(50% - 20px);
+  right: calc(50% - 20px);
+  opacity: 0;
+  transition: opacity 0.5s, top 0.5s;
+  font-weight: 900;
+  z-index: 100;
+}
