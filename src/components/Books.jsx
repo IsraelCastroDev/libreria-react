@@ -21,20 +21,21 @@ function Books() {
     return genreBooks.length - unavailableBooksCount;
   };
 
+  const allBooksIsEmpty = allBooks?.length > 0;
+  const genreIsAll = filters.genre === "all";
+  const booksAvailableInTotal = allBooks.length - readingList.length;
+  const booksAvailableByGenre = availableBooksCount(allBooks);
+
   return (
     <div className="w-3/4">
       <p className="font-semibold">
-        {allBooks?.length > 0
-          ? `Hay ${
-              allBooks.length - readingList.length
-            } libros disponibles en total`
+        {allBooksIsEmpty
+          ? `Hay ${booksAvailableInTotal} libros disponibles en total`
           : "No hay libros disponibles en total"}
       </p>
       <p className="font-semibold">
-        {filters.genre !== "all" &&
-          `Hay ${availableBooksCount(
-            allBooks
-          )} libros disponibles en el género ${
+        {genreIsAll &&
+          `Hay ${booksAvailableByGenre} libros disponibles en el género ${
             filters.genre === "all" ? "Todos" : filters.genre
           }`}
       </p>
