@@ -34,7 +34,7 @@ function Books() {
           : "No hay libros disponibles en total"}
       </p>
       <p className="font-semibold">
-        {genreIsAll &&
+        {!genreIsAll &&
           `Hay ${booksAvailableByGenre} libros disponibles en el género ${
             filters.genre === "all" ? "Todos" : filters.genre
           }`}
