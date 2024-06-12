@@ -1,7 +1,10 @@
+import { useBooks } from "../hooks/useBooks";
 import { IconMinus } from "./Icons";
 import "./css/reading-list.css";
 
-function ReadingList({ readingList, deleteBook }) {
+function ReadingList() {
+  const { readingList, deleteBook } = useBooks();
+
   return (
     <aside className="bg-gray-100 p-5 fixed top-0 right-0 w-full h-screen translate-x-[-200%] md:translate-x-0 transition-transform duration-500 md:transition-none md:w-1/4 md:relative lg:relative lg:translate-x-0">
       <h2 className="text-2xl text-slate-800 font-black">Lista de Lectura</h2>
