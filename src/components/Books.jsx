@@ -42,7 +42,7 @@ function Books() {
 
       <ul className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-x-5 gap-y-8">
         {filteredBooks?.map((book) => (
-          <Book key={book.id} book={book} />
+          <Book key={book.book.ISBN} book={book} />
         ))}
       </ul>
     </div>
