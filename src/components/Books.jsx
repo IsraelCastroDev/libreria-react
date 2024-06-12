@@ -27,7 +27,7 @@ function Books() {
   const booksAvailableByGenre = availableBooksCount(allBooks);
 
   return (
-    <div className="w-3/4">
+    <div className="w-3/4 lg:w-3/4">
       <p className="font-semibold">
         {allBooksIsEmpty
           ? `Hay ${booksAvailableInTotal} libros disponibles en total`
@@ -40,7 +40,7 @@ function Books() {
           }`}
       </p>
 
-      <ul className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-x-5 gap-y-8">
+      <ul className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-x-5 gap-y-8">
         {filteredBooks?.map((book) => (
           <li key={book.book.ISBN}>
             <div className="book-img">
