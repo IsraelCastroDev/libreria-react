@@ -1,10 +1,10 @@
 import { useBooks } from "../hooks/useBooks";
 import { useFilters } from "../hooks/useFilters";
-import { IconMinus, IconPlus } from "./Icons";
+import Book from "./Book";
 import "./css/books.css";
 
 function Books() {
-  const { handleClick, isInReadingList, readingList } = useBooks();
+  const { readingList } = useBooks();
   const { filters, allBooks, filteredBooks } = useFilters();
   const availableBooksCount = (books) => {
     // filtro por genero
@@ -42,26 +42,7 @@ function Books() {
 
       <ul className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-x-5 gap-y-8">
         {filteredBooks?.map((book) => (
-          <li key={book.book.ISBN}>
-            <div className="book-img">
-              <img
-                src={book.book.cover}
-                alt={book.book.title}
-                className={`book-cover w-full h-[400px] block ${
-                  isInReadingList(book.book) ? "opacity-35" : "opacity-100"
-                }`}
-              />
-              <button
-                className={`book-btn font-black`}
-                onClick={() => handleClick(book.book)}
-              >
-                {isInReadingList(book.book) ? <IconMinus /> : <IconPlus />}
-              </button>
-            </div>
-            <h3 className="text-center font-semibold mt-2">
-              {book.book.title}
-            </h3>
-          </li>
+          <Book key={book.id} book={book} />
         ))}
       </ul>
     </div>
