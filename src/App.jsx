@@ -2,12 +2,9 @@ import Header from "./components/Header";
 import ReadingList from "./components/ReadingList";
 import Books from "./components/Books";
 import Footer from "./components/Footer";
-import { useBooks } from "./hooks/useBooks";
 import { IconReadingList } from "./components/Icons";
 
 function App() {
-  const { readingList, deleteBook } = useBooks();
-
   return (
     <>
       <Header />
@@ -18,7 +15,7 @@ function App() {
         <section className="flex flex-col items-center md:items-start justify-center md:flex-row gap-5 mt-5">
           <Books />
           <input type="checkbox" id="menu" hidden className="input-menu" />
-          <ReadingList readingList={readingList} deleteBook={deleteBook} />
+          <ReadingList />
         </section>
       </main>
       <label
