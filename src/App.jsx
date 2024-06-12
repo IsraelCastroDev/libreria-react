@@ -3,10 +3,12 @@ import ReadingList from "./components/ReadingList";
 import Books from "./components/Books";
 import Footer from "./components/Footer";
 import { IconReadingList } from "./components/Icons";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
+      <Toaster />
       <Header />
       <main className="mx-[1.3em] md:mx-[1.7em">
         <h1 className="text-3xl font-bold text-center mt-2">
