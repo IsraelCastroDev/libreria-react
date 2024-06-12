@@ -1,6 +1,7 @@
 import { useEffect, useContext } from "react";
 import { ACTIONS_REDUCER_BOOKS } from "../reducers/books-reducer";
 import { BooksContext } from "../contexts/books";
+import toast from "react-hot-toast";
 
 export function useBooks() {
   const context = useContext(BooksContext);
@@ -35,11 +36,15 @@ export function useBooks() {
         type: ACTIONS_REDUCER_BOOKS.REMOVE_BOOK_FROM_READING_LIST,
         payload: book,
       });
+      toast("Quitado de tu lista de lectura", {
+        icon: "🗑",
+      });
     } else {
       dispatch({
         type: ACTIONS_REDUCER_BOOKS.ADD_BOOK_IN_READING_LIST,
         payload: book,
       });
+      toast.success("Agregado en tu lista de lectura.");
     }
 
     const updateList = bookInList
@@ -58,6 +63,10 @@ export function useBooks() {
     dispatch({
       type: ACTIONS_REDUCER_BOOKS.REMOVE_BOOK_FROM_READING_LIST,
       payload: book,
+    });
+
+    toast("Quitado de tu lista de lectura", {
+      icon: "🗑",
     });
 
     const updateList = state.filter((b) => b.ISBN !== book.ISBN);
