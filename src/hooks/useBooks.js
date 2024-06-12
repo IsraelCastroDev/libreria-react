@@ -11,6 +11,7 @@ export function useBooks() {
 
   const { state, dispatch } = context;
 
+  // sincronizar pestañas
   useEffect(() => {
     const handleStorageChange = (e) => {
       if (e.key === "readingList") {
